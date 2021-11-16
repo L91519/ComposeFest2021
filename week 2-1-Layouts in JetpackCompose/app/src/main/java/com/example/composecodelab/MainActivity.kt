@@ -71,18 +71,24 @@ fun LazyList() {
     val coroutineScope = rememberCoroutineScope()
 
     Row {
-        Button(onClick = {
-            coroutineScope.launch {
-                scrollState.animateScrollToItem(0)
-            }
-        }) {
+        Button(
+            onClick = {
+                coroutineScope.launch {
+                    scrollState.animateScrollToItem(0)
+                }
+            },
+            modifier = Modifier.firstBaselineToTop(32.dp)
+        ) {
             Text("Scroll To Top")
         }
-        Button(onClick = {
-            coroutineScope.launch {
-                scrollState.animateScrollToItem(listSize)
-            }
-        }) {
+        Button(
+            onClick = {
+                coroutineScope.launch {
+                    scrollState.animateScrollToItem(listSize)
+                }
+            },
+            modifier = Modifier.padding(32.dp)
+        ) {
             Text("Scroll To Bottom")
         }
     }
